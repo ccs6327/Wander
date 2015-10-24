@@ -10,7 +10,7 @@ Template.addItem.events({
 		var price = event.target.price.value;
 		var quantity = event.target.price.value;
 		var description = event.target.description.value;
-		var shop = Shops.findOne({userId: Meteor.userId()});
+		var shop = Shops.findOne({owner: Meteor.userId()});
 
 		console.log(title);
 		console.log(price);

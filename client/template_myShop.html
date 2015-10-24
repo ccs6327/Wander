@@ -1,2 +1,22 @@
 <template name="myShop">
+	<a id="addNewItem" class="btn btn-default" href="/addItem">Add Item</a>
+	<br><br>
+	{{#if hasShop}}
+		{{#if isShopSetup}}
+			<button id="tearDownShop" class="btn btn-warning">Tear down your shop</button>
+		{{else}}
+			<button id="setupShop" class="btn btn-primary">Set up your shop here</button>
+		{{/if}}
+		<br><br>
+
+		{{#each Items}}
+			{{title}}<br>
+			{{description}}<br>
+			{{price}}<br>
+			{{quantity}}<br>
+			{{image}}<br><br>
+		{{/each}}
+	{{else}}
+		<h1> You have no item in your shop </h1>
+	{{/if}}
 </template>
