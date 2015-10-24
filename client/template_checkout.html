@@ -1,2 +1,8 @@
 <template name = "checkout">
+	<h2>Your cart</h2>
+	{{#each Carts}}
+		{{itemId}}<br>
+		{{buyerId}}<br>
+		<a id="removeFromCart" href="#">Remove from cart</a><br><br>
+	{{/each}}
 </template>
