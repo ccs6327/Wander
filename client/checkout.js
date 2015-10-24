@@ -20,5 +20,10 @@ Template.checkout.events({
 		});
 
 		Carts.remove({_id: this._id});
+	},
+
+	"click #checkOutCart": function(event){
+		//TODO: 
+		//TODO: remove all items from buyerId's cart
 	}
 });
