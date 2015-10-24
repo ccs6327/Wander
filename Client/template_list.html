@@ -1,2 +1,10 @@
 <template name = "list">
+	<h2>Items near you</h2>
+	{{#each Items}}
+		{{title}}<br>
+		{{description}}<br>
+		{{price}}<br>
+		{{quantity}}<br>
+		{{image}}<br><br>
+	{{/each}}
 </template>

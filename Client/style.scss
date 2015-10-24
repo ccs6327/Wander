@@ -1,0 +1,39 @@
+@import '{reywood:bootstrap3-sass}/bootstrap';
+
+html body {
+	background-color:#ECF0F1;
+}
+
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus {
+	background-color: #E74C3C
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+#navbar {
+
+	background-color: #E74C3C;
+
+	#navbarTitle {
+		color: white;
+		font-size: 25px;
+		font-weight: bold;
+	}
+
+	#navbarNavigations {
+		
+		/*float: right;*/
+		a {
+			color: white;
+		}
+
+	}
+
+	.navbarOption:hover {
+		display: inline;
+		background-color: #BD3E31;
+	}
+}
