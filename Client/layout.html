@@ -1,0 +1,13 @@
+<template name = "layout">
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	</head>
+	<div>
+	{{> navigationBar}}
+	<div class = "container">
+	{{#transition wrap="true" in="slideInLeft" out="fadeOut:200"}}
+   		{{> yield}}
+  	{{/transition}}
+  	</div>
+  	</div>
+</template>
