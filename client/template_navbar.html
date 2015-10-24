@@ -8,7 +8,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a id = "navbarTitle" class = "navbar-brand" href = "{{pathFor route='map'}}">Sahara</a>
+		      <a id = "navbarTitle" class = "navbar-brand" href = "{{pathFor route='map'}}">Wander</a>
 		    </div>			
 			<div class="collapse navbar-collapse" id="navbarCollapseTarget">
 				<ul id = "navbarNavigations" class = "nav navbar-nav">
@@ -16,6 +16,7 @@
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='personalInfo'}}"><img src = "">Personal Info</a></li>
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='map'}}"><img src = "">Map</a></li>
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='list'}}"><img src = "">List</a></li>
+					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='addItem'}}"><img src = "">Add Item</a></li>
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='checkout'}}"><img src = "">Checkout</a></li>
 					{{/if}}
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><img src = "">{{> loginButtons}}</li>

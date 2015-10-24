@@ -23,6 +23,14 @@ Router.route('map',{
 	template: 'map'
 });
 
+Router.route('addItem', {
+	template: 'addItem'
+});
+
+Router.route('myShop', {
+	template: 'myShop'
+});
+
 Router.route('/shop/:_id', function() {
 	if (this.ready()) {
 		this.render('shop', {
