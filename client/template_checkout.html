@@ -9,58 +9,61 @@
 	    </div>
 
 	 	<div class="row">
-	     	<h2>Checkout</h2>
+	     	<center><h2>Checkout</h2></center>
 
 	     	<hr>
 
 	     	<form id="checkout" method="post" action="/checkout">
+	     		<center><div class = "ui form">
 		       	<h3>Details</h3>
 		       	<div class="row">
 		         	<label for="firstName" class="columns small-12 large-6">
 		           		First Name
-		           		<input type="text" name="firstName" required>
+		           		<input type="text" name="firstName" value = "Valerie" required>
 		         	</label>
 
 		         	<label for="lastName" class="columns small-12 large-6 ">
 		           		Last Name
-		           		<input type="text" name="lastName" required>
+		           		<input type="text" name="lastName" value = "Pang" required>
 		         	</label>
 		         	<label for="lastName" class="columns small-12 large-6 ">
 		           		Amount $	
 		         		<input type="text" name="amount" value={{amount}} readonly> 
 		         	</label>
 		       	</div>
+		       </div>
 
-		       	<h3>Payment</h3>
-		       		<div class="row">
-			         	<div class="columns small-12">
-			           	<p>
-			             	<strong>Test Credit Card Number:</strong> 4111 1111 1111 1111 <a href="https://developers.braintreepayments.com/ios+ruby/reference/general/testing#credit-card-numbers" target="_blank">(documentation)</a>
-			           	</p>
-			           	<p>
-			             	<strong>Expiration:</strong> (any future dated expiration e.g. 09/16)
-			           	</p>
-			         	</div>
-		       		</div>
+		       	<h3>Pay with</h3>
 
-		       	<div class="row">
-		         	<div id="dropin" class="columns small-12"></div>
+		       	<div class="ui centered card">
+		         	<div style = "text-align: center" id="dropin" class="columns small-12"></div>
 		       	</div>
 
 		       	<div class="row">
 		         	<div class="columns small-12">
-		           		<button type="submit">Complete Your Purchase</button>
+		           		<center><button class = "btn btn-md btn-primary" type="submit">Confirm purchase</button></center>
 		         	</div>
 		       	</div>
+		       </center>
 	     	</form>
 	    </div>
 	</div>
 </template>
 
 <template name="confirmation">
-  	<div class="row">
-	    <h2>Order Complete</h2>
-	    <h1>Thank you!</h1>
-	    <a class="btn btn-primary" href={{destination}}>Navigate Now!</a>
-	 </div>
+	<div class = "container">
+		<div class = "row">
+	    	<center><h1>Order Completed</h1>
+	    	<h2>Thank you!</h2></center>
+	    </div><br>
+		<div class = "row">
+			<center>
+		    {{#linkTo route="list"}}
+		    <button class = "btn btn-lg btn-primary">
+		       Take me back! I want to buy more stuff!
+		   </button>
+		    {{/linkTo}}
+			</center>
+		</div>
+	</div>
 </template>

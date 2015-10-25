@@ -16,10 +16,12 @@
 	</div>
 
 	{{#if hasItem}}
-		<a id="checkoutCart" href="/checkout">Check Out Cart</a><br><br>
+		<br><br>
+		<center><button class = "btn btn-lg btn-primary" id="checkoutCart" href="/checkout">Check Out Cart</button></center><br><br>
 	{{else}}
-		<h5>You have nothing in your cart</h5>
-		<br>
-		<a class="btn btn-primary" href="/map">Shop Now</a>
+		<center>
+			<h4>You have nothing in your cart</h4>
+			<a class="btn btn-lg btn-primary" href="/map">Shop Now</a>
+		</center>
 	{{/if}}
 </template>
