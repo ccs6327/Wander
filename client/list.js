@@ -15,6 +15,19 @@ Template.list.helpers({
 	}
 });
 
+Template.registerHelper('getImage', function (sessionId) {
+	console.log(sessionId);
+	var image = Images.findOne({sessionId: sessionId});
+	console.log(image);
+	if (typeof image !== "undefined") {
+		return image;
+	} else {
+		var image = {};
+		image.url = "images/wanderLogo.png";
+		return image;
+	}
+});
+
 Template.list.events({
 	"click #addToCart": function(event) {
 		Carts.insert({buyerId: Meteor.user()._id, itemId: this._id});
