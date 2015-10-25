@@ -1,4 +1,10 @@
 <template name = "addItem">
+	{{> dropzone}}
+	{{#each Images}}
+		<a href="{{url}}" target="_blank" class="thumbnail">
+        	<img src="{{url}}" />
+     	</a>
+	{{/each}}
 	<form class="new-item" id="new-item">
 		<label id="titleLabel">Title: </label>
 		<input name="title" type="text">
@@ -15,4 +21,16 @@
 	<br><br>
 	<button id="buttonAddItem" type="submit">Add Item</button>
 	</form>
+</template>
+
+<template name="dropzone">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="dropzone" class="dropzone">
+        <div class="well well-drop-zone">
+          Drop file(s) here to upload
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
