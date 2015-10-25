@@ -1,12 +1,13 @@
 <template name="myShop">
 	<a id="addNewItem" class="btn btn-default" href="/addItem">Add Item</a>
 	<br><br>
-	{{#if hasShop}}
+	{{#if hasItem}}
 		{{#if isShopSetup}}
 			<button id="tearDownShop" class="btn btn-warning">Tear down your shop</button>
 		{{else}}
 			<button id="setupShop" class="btn btn-primary">Set up your shop here</button>
 		{{/if}}
+
 		<br><br>
 
 		<div class = "ui stackable centered three column grid">
