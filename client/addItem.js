@@ -7,8 +7,8 @@ Template.addItem.events({
 		event.preventDefault();
 
 		var title = event.target.title.value;
-		var price = event.target.price.value;
-		var quantity = event.target.price.value;
+		var price = parseInt(event.target.price.value);
+		var quantity = parseInt(event.target.quantity.value);
 		var description = event.target.description.value;
 		var shop = Shops.findOne({owner: Meteor.userId()});
 

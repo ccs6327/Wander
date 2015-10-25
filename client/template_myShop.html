@@ -9,13 +9,18 @@
 		{{/if}}
 		<br><br>
 
+		<div class = "ui stackable four centered cards">
 		{{#each Items}}
-			{{title}}<br>
-			{{description}}<br>
-			{{price}}<br>
-			{{quantity}}<br>
-			{{image}}<br><br>
+			<div class = "ui card">
+				 <i class="remove icon" id = "removeIcon"></i>
+				{{title}}<br>
+				{{description}}<br>
+				{{price}}<br>
+				{{quantity}}<br>
+				{{image}}<br><br>
+			</div>
 		{{/each}}
+		</div>
 	{{else}}
 		<h1> You have no item in your shop </h1>
 	{{/if}}

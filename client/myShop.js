@@ -37,5 +37,9 @@ Template.myShop.events({
 		event.preventDefault();
 		var shopId = Shops.findOne({owner: Meteor.userId()})['_id'];
 		Shops.update({_id: shopId}, {$set: {isActive: false}});
+	},
+
+	"click #removeIcon": function(event){
+		Items.remove({_id: this._id});
 	}
 });
