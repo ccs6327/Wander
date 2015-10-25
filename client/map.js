@@ -33,10 +33,10 @@ Template.body.onCreated(function() {
 		var shops = Shops.find({isActive: true}).fetch();
 		for (x in shops) {
 			var shop = shops[x];
-
-			// if (shop["owner"] == Meteor.userId()) {
-			// 	continue;
-			// }
+			
+			if (shop["owner"] == Meteor.userId()) {
+				continue;
+			}
 
 			var shopLat = shop["shopLat"];
 			var shopLng = shop["shopLng"];
@@ -56,9 +56,9 @@ Template.body.onCreated(function() {
 			var image = "images/wanderLogoSmall.png";
 			if (distance <= 1) {
 				console.log(Meteor.users.findOne({_id: shop["owner"]}));
-				var userEmail = Meteor.users.findOne({_id: shop["owner"]}).emails[0].address;
-				console.log(userEmail);
-				var contentString = "<div style = 'text-align: center'><h5>" + userEmail + "</h5>" +
+				// var userEmail = Meteor.users.findOne({_id: shop["owner"]}).emails[0].address;
+				// console.log(userEmail);
+				var contentString = 
 					"Reputation: <br> <img src='images/thumbsup.png' id = 'thumbIcon'>" + shop["likes"] +
 					"<img src='images/thumbsdown.png' id = 'thumbIcon'>" + shop["dislikes"] +
 					"<br><a class='btn btn-primary' href='/shop/" + shop["_id"] + "'>Visit shop</a><br></div>";
