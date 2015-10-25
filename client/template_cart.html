@@ -1,12 +1,19 @@
 <template name = "cart">
 	<h2>Your cart</h2>
-	{{#each Items}}
-		{{title}}<br>
-		{{description}}<br>
-		{{price}}<br>
-		{{image}}<br>
-		<button id="removeFromCart">Remove from cart</button><br><br>
-	{{/each}}
+	<div class = "ui stackable centered three column grid">
+		{{#each Items}}
+		<div class = "column" id = "itemDisplay">
+			<img class = "img-circle" src = "images/car.jpg">
+			<div style = "text-align: right" id = "itemDetails">
+					<p>{{title}}</p>
+					<p>${{price}}</p>
+					<p>Amount left: {{quantity}}</p>
+					<p>{{description}}</p>
+					<button class = "btn btn-md" id="removeFromCart">Remove from cart</button>
+				</div>
+		</div>
+		{{/each}}
+	</div>
 
 	{{#if hasItem}}
 		<a id="checkoutCart" href="/checkout">Check Out Cart</a><br><br>

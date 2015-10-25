@@ -1,6 +1,12 @@
 Template.list.helpers({
 	Items: function(){
 		return Items.find({quantity: { $gt: 0}});
+	},
+	likes: function(){
+		return Shops.findOne({_id: this.shopId})["likes"];
+	},
+	dislikes: function(){
+		return Shops.findOne({_id: this.shopId})["dislikes"];
 	}
 });
 

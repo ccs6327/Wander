@@ -1,27 +1,26 @@
 <template name="myShop">
 	<a id="addNewItem" class="btn btn-default" href="/addItem">Add Item</a>
 	<br><br>
-	{{#if hasItem}}
+	{{#if hasShop}}
 		{{#if isShopSetup}}
 			<button id="tearDownShop" class="btn btn-warning">Tear down your shop</button>
 		{{else}}
 			<button id="setupShop" class="btn btn-primary">Set up your shop here</button>
 		{{/if}}
-
 		<br><br>
 
 		<div class = "ui stackable centered three column grid">
 			{{#each Items}}
-			<div class = "column" id = "itemDisplay">
-				<img class = "img-circle" src = "images/car.jpg">
-				<div style = "text-align: right" id = "itemDetails">
-					<p>{{title}}</p>
-					<p>${{price}}</p>
-					<p>Amount left: {{quantity}}</p>
-					<p>{{description}}</p>
-					<button class = "btn btn-md" id="removeIcon">Remove Item</button>
+				<div class = "column" id = "itemDisplay">
+					<img class = "img-circle" src = "images/car.jpg">
+					<div style = "text-align: right" id = "itemDetails">
+						<h3>{{title}}</h3>
+						<p>${{price}}</p>
+						<p>Amount left: {{quantity}}</p>
+						<p>{{description}}</p>
+						<button class="btn btn-default" id = "removeIcon">Remove item</button>
+					</div>
 				</div>
-			</div>
 			{{/each}}
 		</div>
 	{{else}}

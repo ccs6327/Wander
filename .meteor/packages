@@ -33,3 +33,4 @@ cfs:gridfs
 cfs:s3
 chrismbeckett:toastr
 reactive-var
+sacha:spin

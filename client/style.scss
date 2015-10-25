@@ -15,7 +15,7 @@ html body {
 
 #navbar {
 
-	background-color: #E74C3C;
+	background-color: #E0653A;
 
 	#navbarTitle {
 		color: white;
@@ -38,9 +38,19 @@ html body {
 	}
 }
 
+.btn {
+	background-color: #3498DB;
+	color: white;
+}
+
+.btn:hover {
+	background-color: #2980B9;
+	color: white;
+}
+
 .img-circle {
-    width: 125px;
-    height: 125px;
+    width: 150px;
+    height: 150px;
 	border-radius: 150px;
 	-webkit-border-radius: 200px;
 	-moz-border-radius: 200px;
@@ -49,17 +59,25 @@ html body {
 	padding: 10px;
 }
 
+#logo {
+	width:70px;
+	height:70px;
+}
+
 #itemDisplay {
 	width: 300px;
 	background-color: white;
 	margin: 5px;
 	border-radius: 5px;
-	text-align: center;
 	padding: 10px;
 }
 
 #itemsContainer {
 	text-align: center;
+}
+
+#thumbIcon {
+	padding-right: 5px;
 }
 
 .map-container {

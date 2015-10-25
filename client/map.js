@@ -58,9 +58,9 @@ Template.body.onCreated(function() {
 				var userEmail = Meteor.users.findOne({_id: shop["owner"]}).emails[0].address;
 				console.log(userEmail);
 				var contentString = "<h5>" + userEmail + "</h5>" +
-					"<li><image src='/images/thumbsup.png'></image>" + shop["likes"] +
-					"<image src='/images/thumbsdown.png'></image>" + shop["dislikes"] + "</li>" +
-					"<a class='btn btn-primary' href='/shop/" + shop["_id"] + "'>Go to shop</a><br>";
+					"<img src='images/thumbsup.png' id = 'thumbIcon'>" + shop["likes"] +
+					"<img src='images/thumbsdown.png' id = 'thumbIcon'>" + shop["dislikes"] +
+					"<br><a class='btn btn-primary' href='/shop/" + shop["_id"] + "'>Go to shop</a><br>";
 
 				var infowindowWidth = $(window).width() * 0.8;
 				var infowindowHeight = $(window).height() * 0.8;
