@@ -25,7 +25,10 @@
 		           		Last Name
 		           		<input type="text" name="lastName" required>
 		         	</label>
-		         	<input type="hidden" name="amount" value={{amount}}> 
+		         	<label for="lastName" class="columns small-12 large-6 ">
+		           		Amount $
+		         		<input type="text" name="amount" value={{amount}} readonly> 
+		         	</label>
 		       	</div>
 
 		       	<h3>Payment</h3>
@@ -58,7 +61,7 @@
   	<div class="row">
 	    <h2>Order Complete</h2>
 	    <h1>Thank you!</h1>
-	    {{#linkTo route="/"}}
+	    {{#linkTo route="list"}}
 	       Take me back! I want to buy more stuff!
 	    {{/linkTo}}
 	 </div>

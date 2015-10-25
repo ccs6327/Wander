@@ -24,9 +24,16 @@ function initializeBraintree (clientToken) {
             Session.set('paymentFormStatus', true);
 
             var data = serializeForm($('#checkout'));
+            console.log(data.amount);
             data.nonce = nonce;
 
             Meteor.call('createTransaction', data, function (err, result) {
+                console.log(result);
+                var isSuccess = result.success;
+                var braintreeId = result.transaction.customer.id;
+                if (isSuccess) {
+                    Meteor.users.update({_id: Meteor.userId()}, {$set:{"profile.braintreeId": braintreeId}});
+                }
                 Session.set('paymentFormStatus', null);
                 Router.go('confirmation');
             });
@@ -47,16 +54,23 @@ Template.checkout.helpers({
         for (x in carts){
             var itemId = carts[x]["itemId"];
             var item = Items.findOne({_id: itemId});
-            console.log("per item:" + item["price"]);
             total += parseFloat(item["price"]); 
         }
-        console.log(total);
         return total
     }
 });
 
 Template.checkout.rendered = function () {
-    Meteor.call('getClientToken', function (err, clientToken) {
+    var currentUser = Meteor.user();
+    var userProfile = currentUser.profile;
+    var braintreeId;
+    if (typeof userProfile !== "undefined") {
+        braintreeId = userProfile.braintreeId;
+        console.log(braintreeId);
+
+    }
+
+    Meteor.call('getClientToken', braintreeId, function (err, clientToken) {
         if (err) {
             console.log('There was an error', err);
             return;

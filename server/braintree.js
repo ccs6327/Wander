@@ -11,34 +11,34 @@ Meteor.startup(function () {
 });
 
 Meteor.methods({
-  getClientToken: function (clientId) {
+  getClientToken: function (customerId) {
+
     var generateToken = Meteor.wrapAsync(gateway.clientToken.generate, gateway.clientToken);
     var options = {};
 
-    if (clientId) {
-      options.clientId = clientId;
+    if (customerId) {
+      options.customerId = customerId;
     }
 
     var response = generateToken(options);
 
     return response.clientToken;
   },
+
   createTransaction: function (data) {
     var transaction = Meteor.wrapAsync(gateway.transaction.sale, gateway.transaction);
-    // this is very naive, do not do this in production!
-    var amount = parseInt(data.quantity, 10) * 100;
 
     var response = transaction({
-      amount: amount,
+      amount: data.amount,
       paymentMethodNonce: data.nonce,
+      options: {
+        storeInVaultOnSuccess: true
+      },
       customer: {
-        firstName: data.firstName
+        firstName: data.firstName,
+        lastName: data.lastName
       }
     });
-
-    // ...
-    // perform a server side action with response
-    // ...
 
     return response;
   }
