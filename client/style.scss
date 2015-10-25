@@ -6,7 +6,7 @@ html body {
 
 .navbar-default .navbar-toggle:hover, 
 .navbar-default .navbar-toggle:focus {
-	background-color: #E74C3C
+	background-color: #1D4361
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -15,7 +15,7 @@ html body {
 
 #navbar {
 
-	background-color: #E0653A;
+	background-color: #26587F;
 
 	#navbarTitle {
 		color: white;
@@ -25,7 +25,7 @@ html body {
 
 	#navbarNavigations {
 		
-		/*float: right;*/
+		float: right;
 		a {
 			color: white;
 		}
@@ -34,7 +34,7 @@ html body {
 
 	.navbarOption:hover {
 		display: inline;
-		background-color: #BD3E31;
+		background-color: #1D4361;
 	}
 }
 
@@ -87,6 +87,11 @@ html body {
 	margin: auto;
   	max-width: 100%;
   	height: 500px;
+}
+
+#frontLogo {
+	width: 300px;
+	height: auto;
 }
 
 .overlay {
