@@ -55,6 +55,7 @@ Template.body.onCreated(function() {
 
 			var image = "images/wanderLogoSmall.png";
 			if (distance <= 1) {
+				console.log(Meteor.users.findOne({_id: shop["owner"]}));
 				var userEmail = Meteor.users.findOne({_id: shop["owner"]}).emails[0].address;
 				console.log(userEmail);
 				var contentString = "<div style = 'text-align: center'><h5>" + userEmail + "</h5>" +
