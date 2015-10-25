@@ -34,3 +34,10 @@ cfs:s3
 chrismbeckett:toastr
 reactive-var
 sacha:spin
+meteorhacks:npm
+
+
+npm-container
+cosmos:browserify
+manuelschoebel:wait-on-lib
+braintree

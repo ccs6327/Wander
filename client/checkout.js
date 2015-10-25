@@ -39,6 +39,19 @@ function initializeBraintree (clientToken) {
 Template.checkout.helpers({
     paymentFormStatusClass: function () {
         return Session.get('paymentFormStatus') ? 'payment-form__is-submitting' : '';
+    },
+    amount: function() {
+        var carts = Carts.find({buyerId: Meteor.userId()}).fetch();
+        var total = 0.0;
+            
+        for (x in carts){
+            var itemId = carts[x]["itemId"];
+            var item = Items.findOne({_id: itemId});
+            console.log("per item:" + item["price"]);
+            total += parseFloat(item["price"]); 
+        }
+        console.log(total);
+        return total
     }
 });
 

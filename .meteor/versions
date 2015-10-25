@@ -12,6 +12,7 @@ blaze@2.1.3
 blaze-html-templates@1.0.1
 blaze-tools@1.0.4
 boilerplate-generator@1.0.4
+braintree@1.0.0
 caching-compiler@1.0.0
 caching-html-compiler@1.0.2
 callback-hook@1.0.4
@@ -36,6 +37,7 @@ cfs:worker@0.1.4
 check@1.0.6
 chrismbeckett:toastr@2.1.2_1
 coffeescript@1.0.10
+cosmos:browserify@0.8.1
 dburles:google-maps@1.1.5
 ddp@1.2.2
 ddp-client@1.2.1
@@ -72,9 +74,12 @@ less@2.5.0_3
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
+manuelschoebel:wait-on-lib@0.3.0
 mdg:geolocation@1.1.0
 meteor@1.1.9
 meteor-base@1.0.1
+meteorhacks:async@1.0.0
+meteorhacks:npm@1.5.0
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1
@@ -83,6 +88,7 @@ mongo@1.1.2
 mongo-id@1.0.1
 mongo-livedata@1.0.9
 npm-bcrypt@0.7.8_2
+npm-container@1.2.0
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7
 ordered-dict@1.0.4
