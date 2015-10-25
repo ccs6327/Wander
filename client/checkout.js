@@ -83,15 +83,22 @@ Template.checkout.rendered = function () {
     var braintreeId;
     if (typeof userProfile !== "undefined") {
         braintreeId = userProfile.braintreeId;
+        Meteor.call('getClientToken', braintreeId, function (err, clientToken) {
+            if (err) {
+                console.log('There was an error', err);
+                return;
+            }
+            initializeBraintree(clientToken);
+        });
+    } else {
+        Meteor.call('getClientToken', function (err, clientToken) {
+            if (err) {
+                console.log('There was an error', err);
+                return;
+            }
+            initializeBraintree(clientToken);
+        });
     }
-
-    Meteor.call('getClientToken', braintreeId, function (err, clientToken) {
-        if (err) {
-            console.log('There was an error', err);
-            return;
-        }
-        initializeBraintree(clientToken);
-    });
 };
 
 Template.confirmation.helpers({
