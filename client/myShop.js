@@ -50,5 +50,10 @@ Template.myShop.events({
 
 	"click #removeIcon": function(event){
 		Items.remove({_id: this._id});
+		var carts = Carts.find({itemId: this._id}).fetch();
+		for (x in carts){
+			var cartId = carts[x]["_id"];
+			Carts.remove({_id: cartId});	
+		}
 	}
 });
