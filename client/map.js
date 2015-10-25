@@ -53,14 +53,14 @@ Template.body.onCreated(function() {
 			distance = distance * 60 * 1.1515;
 			distance = distance * 0.8684; // convert to mile
 
-			var image = "http://localhost:3000/images/shopping-cart.png";
+			var image = "images/wanderLogoSmall.png";
 			if (distance <= 1) {
 				var userEmail = Meteor.users.findOne({_id: shop["owner"]}).emails[0].address;
 				console.log(userEmail);
-				var contentString = "<h5>" + userEmail + "</h5>" +
-					"<img src='images/thumbsup.png' id = 'thumbIcon'>" + shop["likes"] +
+				var contentString = "<div style = 'text-align: center'><h5>" + userEmail + "</h5>" +
+					"Reputation: <br> <img src='images/thumbsup.png' id = 'thumbIcon'>" + shop["likes"] +
 					"<img src='images/thumbsdown.png' id = 'thumbIcon'>" + shop["dislikes"] +
-					"<br><a class='btn btn-primary' href='/shop/" + shop["_id"] + "'>Go to shop</a><br>";
+					"<br><a class='btn btn-primary' href='/shop/" + shop["_id"] + "'>Visit shop</a><br></div>";
 
 				var infowindowWidth = $(window).width() * 0.8;
 				var infowindowHeight = $(window).height() * 0.8;
@@ -69,6 +69,7 @@ Template.body.onCreated(function() {
 					maxWidth: 500
 				});
 				var newMarker = new google.maps.Marker({
+					animation: google.maps.Animation.DROP,
 					position: new google.maps.LatLng(shopLat, shopLng),
 					map: map.instance,
 					icon: image

@@ -1,15 +1,15 @@
 <template name = "cart">
-	<h2>Your cart</h2>
+	<center><h2>Your cart</h2></center><br>
 	<div class = "ui stackable centered three column grid">
 		{{#each Items}}
 		<div class = "column" id = "itemDisplay">
 			<img class = "img-circle" src = "images/car.jpg">
 			<div style = "text-align: right" id = "itemDetails">
 					<p>{{title}}</p>
-					<p>${{price}}</p>
+					<p><strong>${{price}}</strong></p>
 					<p>Amount left: {{quantity}}</p>
 					<p>{{description}}</p>
-					<button class = "btn btn-md" id="removeFromCart">Remove from cart</button>
+					<button class = "btn btn-default" id="removeFromCart">Remove item</button>
 				</div>
 		</div>
 		{{/each}}

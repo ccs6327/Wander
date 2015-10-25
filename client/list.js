@@ -7,6 +7,11 @@ Template.list.helpers({
 	},
 	dislikes: function(){
 		return Shops.findOne({_id: this.shopId})["dislikes"];
+	},
+	seller: function(){
+		var owner = Shops.findOne({_id: this.shopId})["owner"];
+		var email = Meteor.users.findOne({_id: owner}).emails[0].address;
+		return email;
 	}
 });
 
