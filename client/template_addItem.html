@@ -1,9 +1,8 @@
 <template name = "addItem">
 	{{> dropzone}}
-	{{#each imageName}}
+	{{#each images}}
 		<a href="{{url}}" target="_blank" class="thumbnail">
         	<img src="{{url}}" />
-        	<p>{{name}}</p>
      	</a>
 	{{/each}}
 <!-- 	<p>{{imageName}}</p>

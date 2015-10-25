@@ -1,11 +1,9 @@
-var CURRENTFILE = "";
 
 Template.addItem.helpers({
-	imageName: function(){
-		console.log(Session.get("CURRENTFILE"));
-		console.log(Images.findOne({name: "Screen Shot 2015-10-02 at 10.27.53 am.png"}));
-		return Images.findOne({name: "Screen Shot 2015-10-02 at 10.27.53 am.png"});
-		// return Images.find({});
+	images: function(){
+		console.log(Session.get("currentFile"));
+		console.log(Images.find({"sessionId": Session.get("tempSessionId")}).fetch());
+		return Images.find({"sessionId": Session.get("tempSessionId")});
 	}
 });
 
@@ -17,6 +15,7 @@ Template.addItem.events({
 		var price = parseInt(event.target.price.value);
 		var quantity = parseInt(event.target.quantity.value);
 		var description = event.target.description.value;
+		var sessionId = Session.get("tempSessionId");
 		var shop = Shops.findOne({owner: Meteor.userId()});
 
 		console.log(title);
@@ -24,8 +23,8 @@ Template.addItem.events({
 		console.log(quantity);
 		console.log(description);
 
+		delete Session.keys["tempSessionId"];
 		if (typeof shop === "undefined"){
-			console.log('create shop');
 			Shops.insert({
 				owner: Meteor.userId(),
 				likes: 0,
@@ -38,7 +37,8 @@ Template.addItem.events({
 					title: title,
 					description: description,
 					price: price,
-					quantity: quantity
+					quantity: quantity,
+					sessionId: sessionId
 				}, function (err, id) {
 					console.log(err);
 					Router.go('/myShop');
@@ -51,7 +51,8 @@ Template.addItem.events({
 				title: title,
 				description: description,
 				price: price,
-				quantity: quantity
+				quantity: quantity,
+				sessionId: sessionId
 			}, function (err, id) {
 				console.log(err);
 				Router.go('/myShop');
@@ -60,17 +61,20 @@ Template.addItem.events({
 	}
 });
 
-Template.addItem.rendered = function(){
-
-};
-
 Template.dropzone.events({
   'dropped #dropzone': function(e) {
+  	  if (typeof Session.get("tempSessionId") === "undefined") {
+  	  	Session.set("tempSessionId", (new Date()).getTime() + Meteor.userId());
+  	  	console.log("session id" + Session.get("tempSessionId"));	
+  	  }
+  	  
       FS.Utility.eachFile(e, function(file) {
         var newFile = new FS.File(file);
-        CURRENTFILE = newFile["data"]["blob"]["name"];
-        Session.set("CURRENTFILE", CURRENTFILE);
-        console.log("You uploaded: " + CURRENTFILE);
+        var currentDate = new Date();
+        newFile.name(currentDate.getTime() + newFile.name());
+        console.log(newFile.name());
+        newFile.sessionId = Session.get("tempSessionId");
+        Session.set("currentFile", newFile.name());
         Images.insert(newFile, function (error, fileObj) {
 	        if (error) {
 	          toastr.error("Upload failed... please try again.");
