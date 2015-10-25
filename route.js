@@ -35,6 +35,10 @@ Router.route('myShop', {
 	template: 'myShop'
 });
 
+Router.route('confirmation', {
+	template: 'confirmation'
+});
+
 Router.route('/shop/:_id', function() {
 	if (this.ready()) {
 		this.render('shop', {

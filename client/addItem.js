@@ -12,7 +12,7 @@ Template.addItem.events({
 		event.preventDefault();
 
 		var title = event.target.title.value;
-		var price = parseInt(event.target.price.value);
+		var price = parseFloat(event.target.price.value);
 		var quantity = parseInt(event.target.quantity.value);
 		var description = event.target.description.value;
 		var sessionId = Session.get("tempSessionId");

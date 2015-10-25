@@ -33,3 +33,10 @@ cfs:gridfs
 cfs:s3
 chrismbeckett:toastr
 reactive-var
+meteorhacks:npm
+
+
+npm-container
+cosmos:browserify
+manuelschoebel:wait-on-lib
+braintree
