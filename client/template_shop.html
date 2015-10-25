@@ -1,10 +1,19 @@
 <template name = "shop">
-	{{#each Items}}
-		{{title}}<br>
-		{{description}}<br>
-		{{price}}<br>
-		{{quantity}}<br>
-		{{image}}<br>
-		<a id="addToCart" href="#">Add to cart</a><br><br>
-	{{/each}}
+	<center><h2>{{sellerEmail}}</h2><img src='images/thumbsup.png' id = "thumbIcon">{{likes}}
+	<img src='images/thumbsdown.png' id = "thumbIcon">{{dislikes}}</center><br><br>
+	<div class = "ui stackable centered three column grid">
+		{{#each Items}}
+		<div class = "column" id = "itemDisplay">
+			<img class = "img-circle" src ={{#with getImage sessionId}}{{url}}{{/with}}>
+			<div style = "text-align: right" id = "itemDetails">
+				<h3>{{title}}</h3>
+				<p><strong>${{price}}</strong></p>
+				<p>Amount left: {{quantity}}</p>
+				<p>{{description}}</p>
+				<p>{{seller}}</p>
+				<button class = "btn btn-default" id="addToCart">Purchase</button><br>
+			</div>
+		</div>
+		{{/each}}
+	</div>
 </template>
