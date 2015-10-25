@@ -38,6 +38,34 @@ html body {
 	}
 }
 
+.img-circle {
+    width: 125px;
+    height: 125px;
+	border-radius: 150px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+	background: url(http://link-to-your/image.jpg) no-repeat;
+	float: left;
+	padding: 10px;
+}
+
+.selected {
+	background-color: black;
+}
+
+#itemDisplay {
+	width: 300px;
+	background-color: white;
+	margin: 5px;
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px;
+}
+
+#itemsContainer {
+	text-align: center;
+}
+
 .map-container {
 	margin: auto;
   	max-width: 90%;

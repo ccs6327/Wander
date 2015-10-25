@@ -1,6 +1,14 @@
 Template.list.helpers({
 	Items: function(){
 		return Items.find({quantity: { $gt: 0}});
+	},
+
+	selectedClass: function() {
+		if (this.status === 'active'){
+			return 'selected';
+		}else{
+			return 'unselected';
+		}
 	}
 });
 
@@ -20,5 +28,7 @@ Template.list.events({
 			description: description,
 			quantity: quantity
 		});
+
+		Items.update(this._id,{$set: {status: "active"}});
 	}
 });
