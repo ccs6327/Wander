@@ -4,7 +4,7 @@ Router.configure({
 });
 
 Router.route('/',{
-	template: 'login'
+	template: 'map'
 });
 
 Router.route('personalInfo',{
