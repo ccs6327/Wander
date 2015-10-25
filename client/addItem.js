@@ -27,7 +27,7 @@ Template.addItem.events({
 		if (typeof shop === "undefined"){
 			Shops.insert({
 				owner: Meteor.userId(),
-				name: Meteor.users().emails[0].address,
+				name: Meteor.user().emails[0].address,
 				likes: 0,
 				dislikes: 0,
 				isActive: false
