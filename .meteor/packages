@@ -26,3 +26,4 @@ iron:router
 webtempest:animate
 semantic:ui-css
 mdg:geolocation
+dburles:google-maps
