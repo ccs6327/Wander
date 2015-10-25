@@ -33,7 +33,7 @@ Template.body.onCreated(function() {
 		var shops = Shops.find({isActive: true}).fetch();
 		for (x in shops) {
 			var shop = shops[x];
-			
+
 			if (shop["owner"] == Meteor.userId()) {
 				continue;
 			}
@@ -54,7 +54,7 @@ Template.body.onCreated(function() {
 			distance = distance * 0.8684; // convert to mile
 
 			var image = "images/wanderLogoSmall.png";
-			if (distance <= 1) {
+			if (distance <= 10) {
 				console.log(Meteor.users.findOne({_id: shop["owner"]}));
 				// var userEmail = Meteor.users.findOne({_id: shop["owner"]}).emails[0].address;
 				// console.log(userEmail);
@@ -75,8 +75,9 @@ Template.body.onCreated(function() {
 					map: map.instance,
 					icon: image
 				});
+
 				newMarker.addListener("click", function(){
-					infowindow.open(map.instance, newMarker)
+					infowindow.open(map.instance, this);
 				});
 			}
 		}
