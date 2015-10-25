@@ -1,6 +1,13 @@
 Template.list.helpers({
 	Items: function(){
-		return Items.find({quantity: { $gt: 0}});
+		var activeShopsId = [];
+		var activeShops = Shops.find({isActive: true}).fetch();
+
+		for (x in activeShops) {
+			var shopId = activeShops[x]["_id"];
+			activeShopsId.push(shopId);
+		}
+		return Items.find({quantity: { $gt: 0}, shopId: { $in: activeShopsId }});
 	},
 	likes: function(){
 		return Shops.findOne({_id: this.shopId})["likes"];
