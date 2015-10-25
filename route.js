@@ -15,6 +15,10 @@ Router.route('checkout',{
 	template: 'checkout'
 });
 
+Router.route('cart',{
+	template: 'cart'
+});
+
 Router.route('list',{
 	template: 'list'
 });
