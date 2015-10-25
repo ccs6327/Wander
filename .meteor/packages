@@ -32,3 +32,4 @@ cfs:standard-packages
 cfs:gridfs
 cfs:s3
 chrismbeckett:toastr
+reactive-var
