@@ -3,11 +3,21 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	</head>
 	<div>
-	{{> navigationBar}}
-	<div class = "container">
-	{{#transition wrap="true" in="slideInLeft" out="fadeOut:200"}}
-   		{{> yield}}
-  	{{/transition}}
-  	</div>
+	{{#if currentUser}}
+		{{> navigationBar}}
+		<div class = "container">
+		{{#transition wrap="true" in="slideInLeft" out="fadeOut:200"}}
+	   		{{> yield}}
+	  	{{/transition}}
+  		</div>
+  	{{else}}
+  		<br><br>
+  		<div style = "text-align: center" class = "container">
+  			<img id="frontLogo" src = "images/wander01.png"><br>
+  			<h1 >Wander</h1>
+  			<h3>Buy and sell, <em>anywhere</em></h3>
+			<h3>{{> loginButtons}}</h3>
+		</div>
+	{{/if}}
   	</div>
 </template>
