@@ -21,5 +21,7 @@ Template.list.events({
 
 		var quantity = parseInt(Items.findOne({_id: this._id}).quantity)-1;
 		Items.update({_id: this._id},{ $set: {quantity: quantity}});
+
+		Router.go('/checkout');
 	}
 });
