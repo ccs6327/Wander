@@ -16,7 +16,16 @@ Template.myShop.helpers({
 			return shop['isActive'];
 		}
 		return false
-	}
+	},
+
+	hasItem: function(){
+		var shop = Shops.findOne({owner: Meteor.userId()});
+		if (typeof shop !== "undefined") {
+			var shopId = shop["_id"];
+			return typeof Items.findOne({shopId: shopId}) !== "undefined";
+		} 
+		return false;
+	} 
 });
 
 Template.myShop.events({
