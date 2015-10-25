@@ -1,27 +1,28 @@
 <template name = "addItem">
-	{{> dropzone}}
-	{{#each images}}
-		<a href="{{url}}" target="_blank" class="thumbnail">
-        	<img src="{{url}}" />
-     	</a>
-	{{/each}}
-<!-- 	<p>{{imageName}}</p>
- -->	<form class="new-item" id="new-item">
-		<label id="titleLabel">Title: </label>
-		<input name="title" type="text">
-		<br>
-		<label id="priceLabel">Price: $</label>
-		<input name="price" type="number" min="0.01" step="0.01">
-		<br>
-		<label id="quantity">Quantity: </label>
-		<input name="quantity" type="number" min="1" step="1">
-		<br> 
-	<label id="descriptionLabel"> Description: </label>
-	<br>
-	<textarea rows="4" cols="50" name="description" form="new-item" id="descriptionField"></textarea>
-	<br><br>
-	<button id="buttonAddItem" type="submit">Add Item</button>
-	</form>
+	<h2>Add item</h2><br>
+	<div class = "ui form">
+		<form class="new-item" id="new-item">
+			<h5 id="titleLabel">Title: </h5>
+			<input name="title" type="text">
+			<br>
+			<h5 id="priceLabel">Price: $</h5>
+			<input name="price" type="number" min="0.01" step="0.01">
+			<br>
+			<h5 id="quantity">Quantity: </h5>
+			<input name="quantity" type="number" min="1" step="1">
+			<br> 
+			<h5 id="descriptionLabel"> Description: </h5>
+			<textarea rows="4" cols="50" name="description" form="new-item" id="descriptionField"></textarea>
+		<br><br>
+		{{#each images}}
+			<a href="{{url}}" target="_blank" class="thumbnail">
+	        	<img src="{{url}}" />
+	     	</a>
+		{{/each}}
+		{{> dropzone}}
+		<center><button class = "btn btn-md btn-primary" id="buttonAddItem" type="submit">Add Item</button></center>
+		</form>
+	</div>
 </template>
 
 <template name="dropzone">
@@ -29,7 +30,7 @@
     <div class="col-md-12">
       <div id="dropzone" class="dropzone">
         <div class="well well-drop-zone">
-          Drop file(s) here to upload
+          <center><h5>Drop file(s) here to upload</h5></center>
         </div>
       </div>
     </div>
