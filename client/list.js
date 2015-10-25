@@ -1,7 +1,7 @@
 Template.list.helpers({
 	Items: function(){
 		var activeShopsId = [];
-		var activeShops = Shops.find({isActive: true}).fetch();
+		var activeShops = Shops.find({isActive: true, owner: {$not: Meteor.userId()}}).fetch();
 
 		for (x in activeShops) {
 			var shopId = activeShops[x]["_id"];
