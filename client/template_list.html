@@ -1,23 +1,17 @@
 <template name = "list">
-	<h2>Items near you</h2>
-	<div class = "container">
-		<div class = "row">
+	<center><h2>Items near you</h2></center><br>
+	<div class = "ui stackable centered three column grid">
 		{{#each Items}}
-			<div class = "col-md-3" id = "itemDisplay">
-				<div class = "container-fluid">
-					<div class = "row-fluid">
-						<img class = "img-circle" src = "images/car.jpg">
-						<div style = "text-align: right" id = "itemDetails">
-							<p>{{title}}</p>
-							<p>${{price}}</p>
-							<p>Amount left: {{quantity}}</p>
-							<p>{{description}}</p>
-							<button class = "btn btn-md" id="addToCart" href="#">Add to cart</button><br>
-						</div>
-					</div>
-				</div>
+		<div class = "column" id = "itemDisplay">
+			<img class = "img-circle" src = "images/car.jpg">
+			<div style = "text-align: right" id = "itemDetails">
+				<p>{{title}}</p>
+				<p>${{price}}</p>
+				<p>Amount left: {{quantity}}</p>
+				<p>{{description}}</p>
+				<button class = "btn btn-md" id="addToCart" href="#">Add to cart</button>
 			</div>
-		{{/each}}
 		</div>
+		{{/each}}
 	</div>
 </template>
