@@ -1,6 +1,11 @@
+var CURRENTFILE = "";
+
 Template.addItem.helpers({
-	Images: function(){
-		return Images.find({});
+	imageName: function(){
+		console.log(Session.get("CURRENTFILE"));
+		console.log(Images.findOne({name: "Screen Shot 2015-10-02 at 10.27.53 am.png"}));
+		return Images.findOne({name: "Screen Shot 2015-10-02 at 10.27.53 am.png"});
+		// return Images.find({});
 	}
 });
 
@@ -63,14 +68,16 @@ Template.dropzone.events({
   'dropped #dropzone': function(e) {
       FS.Utility.eachFile(e, function(file) {
         var newFile = new FS.File(file);
-        
+        CURRENTFILE = newFile["data"]["blob"]["name"];
+        Session.set("CURRENTFILE", CURRENTFILE);
+        console.log("You uploaded: " + CURRENTFILE);
         Images.insert(newFile, function (error, fileObj) {
-          if (error) {
-            toastr.error("Upload failed... please try again.");
-          } else {
-            toastr.success('Upload succeeded!');
-          }
-      });
+	        if (error) {
+	          toastr.error("Upload failed... please try again.");
+	        } else {
+	          toastr.success('Upload succeeded!');
+	        }
+      	});
     });
   }
 });

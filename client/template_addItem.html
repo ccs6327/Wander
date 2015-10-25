@@ -1,11 +1,13 @@
 <template name = "addItem">
 	{{> dropzone}}
-	{{#each Images}}
+	{{#each imageName}}
 		<a href="{{url}}" target="_blank" class="thumbnail">
         	<img src="{{url}}" />
+        	<p>{{name}}</p>
      	</a>
 	{{/each}}
-	<form class="new-item" id="new-item">
+<!-- 	<p>{{imageName}}</p>
+ -->	<form class="new-item" id="new-item">
 		<label id="titleLabel">Title: </label>
 		<input name="title" type="text">
 		<br>
