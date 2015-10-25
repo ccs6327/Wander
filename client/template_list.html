@@ -3,7 +3,7 @@
 	<div class = "ui stackable centered three column grid">
 		{{#each Items}}
 		<div class = "column" id = "itemDisplay">
-			<img class = "img-circle" src = "images/car.jpg">
+			<img class = "img-circle" src ={{#with getImage sessionId}}{{url}}{{/with}}>
 			<div style = "text-align: right" id = "itemDetails">
 				<h3>{{title}}</h3>
 				<p><strong>${{price}}</strong></p>
