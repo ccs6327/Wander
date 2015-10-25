@@ -13,6 +13,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapseTarget">
 				<ul id = "navbarNavigations" class = "nav navbar-nav">
 					{{#if currentUser}}
+					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='accounts'}}"><img src = "">Accounts</a></li>
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='map'}}"><img src = "">Map</a></li>
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='list'}}"><img src = "">Shop Items</a></li>
 					<li data-toggle="collapse" data-target=".in" class = "navbarOption"><a href = "{{pathFor route='myShop'}}"><img src = "">My Shop</a></li>

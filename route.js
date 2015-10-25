@@ -7,8 +7,8 @@ Router.route('/',{
 	template: 'login'
 });
 
-Router.route('personalInfo',{
-	template: 'personalInfo'
+Router.route('accounts',{
+	template: 'accounts'
 });
 
 Router.route('checkout',{

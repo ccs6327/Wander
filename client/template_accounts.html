@@ -1,0 +1,37 @@
+<template name = "accounts">
+	<br><center><h2>Account history</h2></center><br>
+	<h3>Purchases</h3>
+	<table class = "ui celled table">
+		<thead>
+		    <tr><th>Item</th>
+		    <th>Price</th>
+		    <th>From</th>
+	  	</tr></thead>
+	  	<tbody>
+		    {{#each boughtItems}}
+		    <tr>
+		      <td>{{title}}</td>
+		      <td class="negative">${{price}}</td>		      
+		      <td>{{selller}}</td>
+		     </tr>
+		     {{/each}}
+		</tbody>
+	</table>
+	<h3>Sales</h3>
+	<table class = "ui celled table">
+		<thead>
+		    <tr><th>Item</th>
+		    <th>Price</th>
+		    <th>To</th>
+	  	</tr></thead>
+	  	<tbody>
+		    {{#each soldItems}}
+		    <tr>
+		      <td>{{title}}</td>
+		      <td class="positive">${{price}}</td>		      
+		      <td>{{selller}}</td>
+		     </tr>
+		     {{/each}}
+		</tbody>
+	</table>
+</template>
