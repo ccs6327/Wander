@@ -53,21 +53,26 @@ Template.body.onCreated(function() {
 			distance = distance * 60 * 1.1515;
 			distance = distance * 0.8684; // convert to mile
 
-			var contentString = "<h1>" + Meteor.user().emails[0].address + "</h1>";
-
-			var infowindow = new google.maps.InfoWindow({
-				content: contentString
-			});
-
 			var image = "http://localhost:3000/images/shopping-cart.png";
 			if (distance <= 1) {
+				var userEmail = Meteor.users.findOne({_id: shop["owner"]}).emails[0].address;
+				console.log(userEmail);
+				var contentString = "<h5>" + userEmail + "</h5>" +
+					"<a class='btn btn-primary' href='/shop/" + shop["_id"] + "'>Go to shop</a>";
+
+				var infowindowWidth = $(window).width() * 0.8;
+				var infowindowHeight = $(window).height() * 0.8;
+				var infowindow = new google.maps.InfoWindow({
+					content: contentString,
+					maxWidth: 500
+				});
 				var newMarker = new google.maps.Marker({
 					position: new google.maps.LatLng(shopLat, shopLng),
 					map: map.instance,
 					icon: image
 				});
 				newMarker.addListener("click", function(){
-					infowindow.open(map, newMarker)
+					infowindow.open(map.instance, newMarker)
 				});
 			}
 		}
