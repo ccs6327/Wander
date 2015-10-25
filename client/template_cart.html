@@ -1,0 +1,18 @@
+<template name = "cart">
+	<h2>Your cart</h2>
+	{{#each Items}}
+		{{title}}<br>
+		{{description}}<br>
+		{{price}}<br>
+		{{image}}<br>
+		<button id="removeFromCart">Remove from cart</button><br><br>
+	{{/each}}
+
+	{{#if hasItem}}
+		<a id="checkoutCart" href="/checkout">Check Out Cart</a><br><br>
+	{{else}}
+		<h5>You have nothing in your cart</h5>
+		<br>
+		<a class="btn btn-primary" href="/map">Shop Now</a>
+	{{/if}}
+</template>
