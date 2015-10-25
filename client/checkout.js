@@ -33,6 +33,23 @@ function initializeBraintree (clientToken) {
                 var braintreeId = result.transaction.customer.id;
                 if (isSuccess) {
                     Meteor.users.update({_id: Meteor.userId()}, {$set:{"profile.braintreeId": braintreeId}});
+                    //remove carts
+                    var carts = Carts.find({buyerId: Meteor.userId()}).fetch();
+                    for (x in carts){
+                        var item = Items.findOne({_id: carts[x]["itemId"]});
+                        var shop = Shops.findOne({_id: item["shopId"]});
+                        Transactions.insert({
+                            buyerId: Meteor.userId(),
+                            sellerId: shop["owner"],
+                            price: item["price"],
+                            itemId: item["_id"],
+                            createdAt: new Date()
+                        }, function(err, result) {
+                            console.log(err);
+                        });
+                        var cartId = carts[x]["_id"];
+                        Carts.remove({_id: cartId});
+                    }
                 }
                 Session.set('paymentFormStatus', null);
                 Router.go('confirmation');
@@ -66,8 +83,6 @@ Template.checkout.rendered = function () {
     var braintreeId;
     if (typeof userProfile !== "undefined") {
         braintreeId = userProfile.braintreeId;
-        console.log(braintreeId);
-
     }
 
     Meteor.call('getClientToken', braintreeId, function (err, clientToken) {
@@ -78,3 +93,12 @@ Template.checkout.rendered = function () {
         initializeBraintree(clientToken);
     });
 };
+
+Template.confirmation.helpers({
+    destination: function(){
+        var lastestTransaction = Transactions.findOne({buyerId: Meteor.userId()}, {sort: {createdAt: -1}});
+        var item = Items.findOne({_id: lastestTransaction["itemId"]});
+        var shop = Shops.findOne({_id: item["shopId"]});
+        return "https://www.google.com/maps?q=" + shop["shopLat"] + "," + shop["shopLng"];
+    }
+});

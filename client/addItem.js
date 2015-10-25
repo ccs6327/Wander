@@ -28,7 +28,8 @@ Template.addItem.events({
 			Shops.insert({
 				owner: Meteor.userId(),
 				likes: 0,
-				dislikes: 0
+				dislikes: 0,
+				isActive: false
 			}, function (err, id) {
 				console.log(err);
 
